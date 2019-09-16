@@ -31,6 +31,17 @@ object Hello {
     println(dog)
     println(dog.name)
 
+
+
+    var myVal : Byte= 10
+    // myVal自动提示到int
+    // 加号运算符只支持int型以上
+    //    myVal+=1   //错误
+
+    println(myVal)
+
+
+    println("不适用临时变量，交换两个数")
     var a = 10
     var b = 20
     println("a="+a+" b="+b)
