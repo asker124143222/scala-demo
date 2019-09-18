@@ -60,5 +60,11 @@ object Ex_funcation3 {
   println(f4(f5, 4))
 
   //匿名函数方式调用f4
-  println(f4((x,y)=>{x*y},4))
+  println(f4((x,y)=>{x*y},3))
+
+  //下划线代表只使用一次的参数，两个下划线分别代表x和y
+  println(f4((_*_),6))
+  println(f4({_*_},6))
+  println(f4(_*_,6))
+
 }
