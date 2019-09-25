@@ -22,9 +22,13 @@ object Hello {
     //变量var可以重新new，变量val不可以重新new
     var dog = new Dog()
     dog.name = "tom"
+    dog.age = 5
+    dog.desc = "very pretty"
+    dog.helloDog
 
     println(dog)
     println(dog.name)
+
 
     dog = new Dog()
     dog.name = "wancai"
@@ -62,5 +66,12 @@ object Hello {
 }
 
 class Dog{
-  var name = "";
+  var name = ""
+  //下划线表示给变量一个默认值
+  var age : Int = _
+  var desc : String = _
+
+  def helloDog: Unit ={
+    println(s"Dog'name is ${name},it's ${age} years old and it's ${desc}")
+  }
 }
