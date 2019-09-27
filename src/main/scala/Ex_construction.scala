@@ -6,10 +6,11 @@ object Ex_construction {
     user2.printAll
 
     println("----------------")
-    val man =new RichMan()
-    val man2 =new RichMan("jerry",10)
+    val man = new RichMan()
+    val man2 = new RichMan("jerry", 10)
     man.sayHello()
     man2.sayHello()
+    man2.printEmail()
   }
 }
 
@@ -24,7 +25,7 @@ class UserInfo(name: String) {
   var password: String = _
   var address: String = _
 
-  def this()  {
+  def this() {
     this("")
   }
 
@@ -42,34 +43,43 @@ class UserInfo(name: String) {
 
 abstract class Person {
   //抽象类可以不定义变量初始值
-  var name : String
-  var age : Int
+  //属性也可以抽象（在java是不可以的）
+  var name: String
+  var age: Int
 
   var email = "example@abc.com"
 
   //抽象方法，没有实现体
   def sayHello()
 
-  def printEmail(): Unit ={
+  def printEmail(): Unit = {
     println(email)
   }
 }
 
-class RichMan extends Person{
+class RichMan extends Person {
 
   override var name: String = _
   override var age: Int = _
 
-  def this(name : String,age : Int){
+  //非抽象的var变量不可以重写
+//  override var email = "123@abc.com"  //错误
+
+  def this(name: String, age: Int) {
     this()
     this.name = name
     this.age = age
   }
 
-  //override重写关键字在补全抽象方法的时候可以省略，在重写方式的时候不能省略
+  //override重写关键字在补全抽象方法的时候可以省略，在重写非抽象方法的时候不能省略
+  //在java中override是带着@的注解，scala中override是关键字
   override def sayHello() {
-    println(this.name + " "+this.age)
+    println(this.name + " " + this.age)
   }
 
-  override def printEmail(): Unit = super.printEmail()
+  override def printEmail(): Unit = {
+    println("override")
+    this.email = "override@email.com"
+    super.printEmail()
+  }
 }
