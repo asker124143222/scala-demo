@@ -9,7 +9,9 @@ object Ex_construction2 {
 }
 
 
+//构造参数前加private表示主构造方法是私有，外部无法调用，需要通过伴生对象apply进行声明和构造
 class Person2(name : String){
+//class Person2 private(name : String){
   println(s"person 主构造方法，参数:${name}")
 
   def this(){
@@ -35,6 +37,7 @@ class User2(userName : String) extends Person2(userName){
   }
 }
 
+//构造参数前加private表示主构造方法是私有，外部无法调用，需要通过伴生对象apply进行声明和构造
 //将构造函数里参数声明为var或者val以后，参数就会变成成员属性，可以被类对象引用
 class User3(var userName : String) extends Person2(userName){
   println(s"user 主构造方法：参数:${userName}")
