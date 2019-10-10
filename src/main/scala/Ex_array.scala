@@ -45,6 +45,7 @@ object Ex_array {
     val ab: ArrayBuffer[Int] = ArrayBuffer(5,6,7,8)
 
     println(ab(0))
+    println(ab.mkString(","))
 
     ab.foreach(println)
     ab.forall(i=>{if(i>5) true else false})
@@ -58,6 +59,13 @@ object Ex_array {
     println(ab.mkString(","))
 
     ab+=(399)
+    println(ab.mkString(","))
+
+    ab+=(1024)
+    println(ab.mkString(","))
+
+    //删除数据
+    ab-=(399)
     println(ab.mkString(","))
 
     //移除
