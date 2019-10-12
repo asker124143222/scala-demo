@@ -1,3 +1,5 @@
+import scala.collection.mutable
+
 object Ex_list2 {
   def main(args: Array[String]): Unit = {
     val list = List(1,2,3,4,5,1,2,3)
@@ -112,5 +114,36 @@ object Ex_list2 {
     //参数只出现一次可以省略，计算过程只出现一次可以用下划线代替
     val retSum2 = list2.reduce(_-_)
     println(s"reduce2 = ${retSum2}")
+
+    //reduce = reduceLeft
+    val retSum3 = list2.reduceLeft(_-_)
+    println("reduceLeft = "+retSum3)
+
+    //从右侧计算
+    val retSum4 = list2.reduceRight(_-_)
+    println("reduceRight = "+retSum4)
+
+    //fold 折叠
+    //和reduce类似，fold可以将集合外的数据放入集合中运算
+    //fold是柯里化函数，第一个参数是集合外数据，第二个参数是数据计算规则
+    val retFold = list1.fold(100)(_+_)
+    println("fold 100 + list1 = "+retFold)
+
+    val fold2 = list2.fold("连接集合")(_.toString+" -> "+_.toString)
+    println("fold string cat = "+fold2)
+
+
+    //将两个map进行合并，相同的key的value做累加，没有的key直接加入
+    //应该返回的值是"a"->4,"b"->2,"c"->5,"d"->1
+    val map1 = mutable.Map("a"->1,"b"->2,"c"->3)
+    val map2 = mutable.Map("a"->3,"c"->2,"d"->1)
+
+    val foldMap: mutable.Map[String, Int] = map1.foldLeft(map2)((map, t) => {
+      map(t._1) = map.getOrElse(t._1, 0) + t._2
+      map
+    })
+    println("fold map = "+foldMap.mkString(","))
+
+
   }
 }
