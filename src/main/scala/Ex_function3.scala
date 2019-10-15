@@ -1,4 +1,4 @@
-object Ex_funcation3 {
+object Ex_function3 {
   def main(args: Array[String]): Unit = {
     def test(): Unit = {
       println("--->test")

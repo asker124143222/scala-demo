@@ -1,4 +1,4 @@
-object Ex_funcation2 {
+object Ex_function2 {
   def main(args: Array[String]): Unit = {
 
     //可变参数,在声明类型后面加一个星号表示

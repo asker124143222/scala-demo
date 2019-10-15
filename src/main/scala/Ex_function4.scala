@@ -1,4 +1,4 @@
-object Ex_funcation4 {
+object Ex_function4 {
   def main(args: Array[String]): Unit = {
     //todo lazy关键字表示惰性加载
     // lazy关键字只能修饰val，不能修饰var

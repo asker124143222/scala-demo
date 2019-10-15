@@ -1,4 +1,4 @@
-object Ex_funcation {
+object Ex_function {
   def main(args: Array[String]): Unit = {
 
     def hello(s : String) :Unit ={
