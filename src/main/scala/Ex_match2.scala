@@ -46,6 +46,17 @@ object Ex_match2 {
       println(s"${elem} result = ${result}")
     }
 
+    println("tuple match ...")
+    val personList = List(("jack","m"),("amy","f"),("li","m"),("tom","m"))
+    for( person <- personList){
+      val result = person match {
+        case (_,"f") => "女性"
+        case (_,"m") => "男性"
+        case _ =>
+      }
+      println(s"${person} result = ${result}")
+    }
+
     //对象匹配
     object Square{
       def apply(arg:Double) = arg * arg
