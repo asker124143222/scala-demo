@@ -2,7 +2,7 @@ object Ex_tuple {
   def main(args: Array[String]): Unit = {
     //todo 用一对小括号表示元组
     val tuple = ("zhangsan", 1024, "54")
-    val tuple2: (123, 456, "aaa") = (123,456,"aaa")
+    val tuple2: (Int, Int, String) = (123,456,"aaa")
 
     println(tuple)
     println(tuple2._1)
